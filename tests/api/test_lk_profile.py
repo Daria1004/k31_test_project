@@ -1,9 +1,18 @@
 import allure
+import pytest
+from allure_commons.types import Severity
 from jsonschema import validate
 from k31_test_project.schema.profile import schema_post_add_car, schema_delete_car, \
     schema_car_access_denied, schema_car_list
 
 
+@allure.tag("api")
+@allure.severity(Severity.NORMAL)
+@allure.label("owner", "Daria Jakuszewicz")
+@allure.label("layer", "api")
+@pytest.mark.api
+@pytest.mark.pages
+@pytest.mark.positive
 def test_profile_add_car(api_request, customer):
     api_request.set_token(customer.get_token())
 
@@ -57,6 +66,13 @@ def test_profile_add_car(api_request, customer):
     assert new_car_id in car_ids
 
 
+@allure.tag("api")
+@allure.severity(Severity.NORMAL)
+@allure.label("owner", "Daria Jakuszewicz")
+@allure.label("layer", "api")
+@pytest.mark.api
+@pytest.mark.pages
+@pytest.mark.positive
 def test_profile_delete_car(api_request, customer, car_id):
     api_request.set_token(customer.get_token())
 
@@ -75,6 +91,13 @@ def test_profile_delete_car(api_request, customer, car_id):
         assert body['message'] == 'Авто успешно удалено'
 
 
+@allure.tag("api")
+@allure.severity(Severity.CRITICAL)
+@allure.label("owner", "Daria Jakuszewicz")
+@allure.label("layer", "api")
+@pytest.mark.api
+@pytest.mark.pages
+@pytest.mark.negative
 def test_profile_cars_other_user(api_request, customer):
     api_request.set_token(customer.get_token())
     response = api_request.get_with_token('/v1/car', params={"user_id": 1})

@@ -1,10 +1,19 @@
 import allure
+import pytest
+from allure_commons.types import Severity
 from jsonschema import validate
 
 import config
 from k31_test_project.schema.auth import schema_post_auth_unsuccessful, schema_post_auth_successful
 
 
+@allure.tag("api")
+@allure.severity(Severity.CRITICAL)
+@allure.label("owner", "Daria Jakuszewicz")
+@allure.label("layer", "api")
+@pytest.mark.api
+@pytest.mark.login
+@pytest.mark.positive
 def test_auth_success(api_request):
     response = api_request.get('/v1/auth/login', auth=(f'7{config.user_login}', config.user_password))
 
@@ -21,6 +30,13 @@ def test_auth_success(api_request):
         assert len(body['data']['token']) > 0
 
 
+@allure.tag("api")
+@allure.severity(Severity.CRITICAL)
+@allure.label("owner", "Daria Jakuszewicz")
+@allure.label("layer", "api")
+@pytest.mark.api
+@pytest.mark.login
+@pytest.mark.negative
 def test_auth_fail(api_request):
     response = api_request.get('/v1/auth/login', auth=(f'7{config.user_login}', config.user_wrong_password))
 

@@ -1,7 +1,17 @@
+import allure
+import pytest
+from allure_commons.types import Severity
+
 import config
 from k31_test_project.pages.mobile.login_page import login_page
 
 
+@allure.tag("mobile")
+@allure.severity(Severity.CRITICAL)
+@allure.label("owner", "Daria Jakuszewicz")
+@pytest.mark.mobile
+@pytest.mark.login
+@pytest.mark.positive
 def test_login_success():
     login_page.skip_health()
     login_page.open_login()
@@ -14,6 +24,13 @@ def test_login_success():
     login_page.open_menu()
     login_page.should_have_username(config.user_mobilename)
 
+
+@allure.tag("mobile")
+@allure.severity(Severity.CRITICAL)
+@allure.label("owner", "Daria Jakuszewicz")
+@pytest.mark.mobile
+@pytest.mark.login
+@pytest.mark.negative
 def test_login_fail():
     login_page.skip_health()
     login_page.open_login()
@@ -22,6 +39,13 @@ def test_login_fail():
     login_page.send_password(config.user_wrong_password)
     login_page.should_have_login_error()
 
+
+@allure.tag("mobile")
+@allure.severity(Severity.NORMAL)
+@allure.label("owner", "Daria Jakuszewicz")
+@pytest.mark.mobile
+@pytest.mark.pages
+@pytest.mark.positive
 def test_complex_programs():
     login_page.skip_health()
     login_page.open_menu()
