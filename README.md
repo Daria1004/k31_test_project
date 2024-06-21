@@ -147,20 +147,23 @@ allure serve allure-results
 
 ### Allure отчёт
 
-#### Общие результаты в Allure Report и Allure TestOps
+#### 🔹 Общие результаты в Allure Report и Allure TestOps
 ![This is an image](tests/resources/images/allure_report_images.png)
 ![This is an image](tests/resources/images/allure_testops_images.png)
 
-#### Пример тест-кейса в Allure Report с логированием и attachments
+#### 🔹 Пример тест-кейса в Allure Report с логированием и attachments
 ![This is an image](tests/resources/images/allure_report_images_1.png)
 
-#### Пример тест-кейса в Allure TestOps с логированием и attachments
+#### 🔹 Пример тест-кейса в Allure TestOps с логированием и attachments
 ![This is an image](tests/resources/images/allure_report_images_2.png)
 
-#### Интеграция с Jira
+#### 🔹 Пример прохождения ручного тест-кейса, объединённого с автотестами в единый тест-план
+![This is an image](tests/resources/images/manual.png)
+
+#### 🔹 Интеграция с Jira
 ![This is an image](tests/resources/images/jira_1.png)
 
-#### Заведение дефекта (интеграция с Jira)
+#### 🔺 Заведение дефекта (интеграция с Jira)
 ![This is an image](tests/resources/images/bug.png)
 
 ## 🎬 Видео прохождения теста:
