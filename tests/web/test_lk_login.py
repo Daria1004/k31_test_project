@@ -6,6 +6,10 @@ import config
 
 from k31_test_project.pages.web.login_page import login_page
 
+
+@allure.epic('Authentication')
+@allure.feature('Login')
+@allure.story('Login user with correct data')
 @allure.tag("web")
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "Daria Jakuszewicz")
@@ -21,6 +25,9 @@ def test_login_success():
     login_page.should_have_username(config.user_webname)
 
 
+@allure.epic('Authentication')
+@allure.feature('Login')
+@allure.story('Login user with incorrect data')
 @allure.tag("web")
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "Daria Jakuszewicz")
@@ -36,6 +43,9 @@ def test_login_fail():
     login_page.should_have_error_text('Введенный код неверен')
 
 
+@allure.epic('Authentication')
+@allure.feature('Logout')
+@allure.story('Logout')
 @allure.tag("web")
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "Daria Jakuszewicz")

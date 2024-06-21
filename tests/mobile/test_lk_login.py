@@ -6,6 +6,9 @@ import config
 from k31_test_project.pages.mobile.login_page import login_page
 
 
+@allure.epic('Authentication')
+@allure.feature('Login')
+@allure.story('Login user with correct data')
 @allure.tag("mobile")
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "Daria Jakuszewicz")
@@ -25,6 +28,9 @@ def test_login_success():
     login_page.should_have_username(config.user_mobilename)
 
 
+@allure.epic('Authentication')
+@allure.feature('Login')
+@allure.story('Login user with incorrect data')
 @allure.tag("mobile")
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "Daria Jakuszewicz")
@@ -40,6 +46,9 @@ def test_login_fail():
     login_page.should_have_login_error()
 
 
+@allure.epic('Pages')
+@allure.feature('Search program')
+@allure.story('Search program correct')
 @allure.tag("mobile")
 @allure.severity(Severity.NORMAL)
 @allure.label("owner", "Daria Jakuszewicz")

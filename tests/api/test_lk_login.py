@@ -7,6 +7,9 @@ import config
 from k31_test_project.schema.auth import schema_post_auth_unsuccessful, schema_post_auth_successful
 
 
+@allure.epic('Authentication')
+@allure.feature('Login')
+@allure.story('Login user with correct data')
 @allure.tag("api")
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "Daria Jakuszewicz")
@@ -30,6 +33,9 @@ def test_auth_success(api_request):
         assert len(body['data']['token']) > 0
 
 
+@allure.epic('Authentication')
+@allure.feature('Login')
+@allure.story('Login user with incorrect data')
 @allure.tag("api")
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "Daria Jakuszewicz")

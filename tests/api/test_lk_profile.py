@@ -6,6 +6,9 @@ from k31_test_project.schema.profile import schema_post_add_car, schema_delete_c
     schema_car_access_denied, schema_car_list
 
 
+@allure.epic('Profile')
+@allure.feature('User profile')
+@allure.story('Add car to user profile')
 @allure.tag("api")
 @allure.severity(Severity.NORMAL)
 @allure.label("owner", "Daria Jakuszewicz")
@@ -66,6 +69,9 @@ def test_profile_add_car(api_request, customer):
     assert new_car_id in car_ids
 
 
+@allure.epic('Profile')
+@allure.feature('User profile')
+@allure.story('Delete car from user profile')
 @allure.tag("api")
 @allure.severity(Severity.NORMAL)
 @allure.label("owner", "Daria Jakuszewicz")
@@ -91,6 +97,9 @@ def test_profile_delete_car(api_request, customer, car_id):
         assert body['message'] == 'Авто успешно удалено'
 
 
+@allure.epic('Profile')
+@allure.feature('User profile')
+@allure.story('Get info about another user\'s car')
 @allure.tag("api")
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "Daria Jakuszewicz")
@@ -112,4 +121,3 @@ def test_profile_cars_other_user(api_request, customer):
         assert body['status'] == 'error'
     with allure.step('Проверка кода в ответе'):
         assert body['error_code'] == 'forbidden'
-
