@@ -1,13 +1,14 @@
 import json
+import logging
 import os
 import allure
 from allure_commons.types import AttachmentType
 from selene import browser
+import requests
+import config
 
 
 def attach_bstack_video(session_id):
-
-    import requests
     bstack_session = requests.get(
         f'https://api.browserstack.com/app-automate/sessions/{session_id}.json',
         auth=(os.getenv('BS_USERNAME'), os.getenv('BS_ACCESSKEY')),
@@ -64,3 +65,37 @@ def attach_video():
            + video_url \
            + "' type='video/mp4'></video></body></html>"
     allure.attach(html, 'video_' + browser.driver.session_id, AttachmentType.HTML, '.html')
+
+
+def log_response(response):
+    logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+
+    logging.info("Request URL: " + response.request.url)
+    if response.request.body:
+        logging.info("Request body: " + str(response.request.body, encoding='utf-8'))
+    logging.info("Request headers: " + str(response.request.headers))
+    logging.info("Response status code " + str(response.status_code))
+    logging.info("Response: " + response.text)
+
+
+def attach_response(response):
+
+    allure.attach(
+        body=response.request.url,
+        name="Request url",
+        attachment_type=AttachmentType.TEXT,
+    )
+
+    if response.request.body:
+        allure.attach(
+            body=json.dumps(response.request.body, indent=4, ensure_ascii=True),
+            name="Request body",
+            attachment_type=AttachmentType.JSON,
+            extension="json",
+        )
+        allure.attach(
+            body=json.dumps(response.json(), indent=4, ensure_ascii=True),
+            name="Response",
+            attachment_type=AttachmentType.JSON,
+            extension="json",
+        )
