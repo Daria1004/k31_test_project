@@ -4,7 +4,7 @@
 
 **Страница** [личного кабинета](https://lk.k31.ru/)
 
-![This is an image](tests/resources/images/lk_k+31_main.png)
+![This is an image](resources/images/lk_k+31_main.png)
 
 <!-- Список проверок-->
 ## Список проверок, реализованных в автотестах:
@@ -117,7 +117,7 @@ mobile тесты на bstack:<br>
 
 
 ### 2. Выбрать пункт **Собрать с параметрами**/**Build with Parameters**
-![This is an image](tests/resources/images/jenkins2.png)
+![This is an image](resources/images/jenkins2.png)
 
 ### 3. Внести изменения в конфигурации сборки, при необходимости
 - ️`BROWSER_VERSION` - выбор версии браузера для запуска тестов, по умолчанию 100.0, вручную можно внести другое значение (99.0, 120.0 или др.)
@@ -125,10 +125,10 @@ mobile тесты на bstack:<br>
 - `COMMENT` - комментарий, который будет отправлен в сообщении от бота в Телеграм
 
 ### 4. Нажать **Собрать**/ **Build**
-![This is an image](tests/resources/images/jenkins4.png)
+![This is an image](resources/images/jenkins4.png)
 
 ### 5. Результат запуска сборки можно посмотреть в отчёте Allure
-![This is an image](tests/resources/images/jenkins5a.png)
+![This is an image](resources/images/jenkins5a.png)
 
 
 ## 📊 Запрос на формирование отчёта:
@@ -148,26 +148,26 @@ allure serve allure-results
 ### Allure отчёт
 
 #### 🔹 Общие результаты в Allure Report и Allure TestOps
-![This is an image](tests/resources/images/allure_report_images.png)
-![This is an image](tests/resources/images/allure_testops_images.png)
+![This is an image](resources/images/allure_report_images.png)
+![This is an image](resources/images/allure_testops_images.png)
 
 #### 🔹 Пример тест-кейса в Allure Report с логированием и attachments
-![This is an image](tests/resources/images/allure_report_images_1.png)
+![This is an image](resources/images/allure_report_images_1.png)
 
 #### 🔹 Пример тест-кейса в Allure TestOps с логированием и attachments
-![This is an image](tests/resources/images/allure_report_images_2.png)
+![This is an image](resources/images/allure_report_images_2.png)
 
 #### 🔹 Пример прохождения ручного тест-кейса, объединённого с автотестами в единый тест-план
-![This is an image](tests/resources/images/manual.png)
+![This is an image](resources/images/manual.png)
 
 #### 🔹 Интеграция с Jira
-![This is an image](tests/resources/images/jira_1.png)
+![This is an image](resources/images/jira_1.png)
 
 #### 🔺 Заведение дефекта (интеграция с Jira)
-![This is an image](tests/resources/images/bug.png)
+![This is an image](resources/images/bug.png)
 
 ## 🎬 Видео прохождения теста:
-![video](tests/resources/images/video.gif)
+![video](resources/images/video.gif)
 
 ## 🔔 Получение уведомлений о прохождении тестов в Telegram
-![This is an image](tests/resources/images/tg_bot.png)
+![This is an image](resources/images/tg_bot.png)
