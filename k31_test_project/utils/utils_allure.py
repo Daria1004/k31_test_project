@@ -47,11 +47,13 @@ def attach_xml_dump():
         attachment_type=allure.attachment_type.XML,
     )
 
-def attach_logs(browser):
+
+def attach_logs():
     log = "".join(f'{text}\n' for text in browser.driver.get_log(log_type='browser'))
     allure.attach(log, 'browser_logs', AttachmentType.TEXT, '.log')
 
-def attach_html(browser):
+
+def attach_html():
     html = browser.driver.page_source
     allure.attach(html, 'page_source', AttachmentType.HTML, '.html')
 

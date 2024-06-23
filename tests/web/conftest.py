@@ -54,9 +54,9 @@ def setup_browser(request):
     yield browser
 
     utils_allure.attach_screenshot()
-    utils_allure.attach_logs(browser)
-    utils_allure.attach_html(browser)
-    utils_allure.attach_video(browser)
+    utils_allure.attach_logs()
+    utils_allure.attach_html()
+    utils_allure.attach_video()
 
     browser.quit()
 
