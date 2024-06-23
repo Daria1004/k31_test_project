@@ -1,6 +1,5 @@
 import config
 import pytest
-import requests
 
 from k31_test_project.pages.api.customer import Customer
 from k31_test_project.utils.api_request import ApiRequest
@@ -45,3 +44,5 @@ def car_id(api_request, customer):
     response = api_request.post_with_token('/v1/car/add', params={"user_id": customer.get_id()}, json=payload)
 
     yield response.json()['data']['id']
+
+    api_request.delete_with_token('/v1/car/delete', params={"user_id": customer.get_id(), "id": car_id})
