@@ -25,7 +25,7 @@ def test_login_success():
     login_page.send_pin()
     login_page.skip_health()
     login_page.open_menu()
-    login_page.should_have_username(config.user_mobilename)
+    login_page.should_have_username(config.user_mobile_name)
 
 
 @allure.epic('Authentication')

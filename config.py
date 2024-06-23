@@ -10,8 +10,8 @@ load_dotenv(file.abs_path_from_project(f'.env.credentials'))
 
 user_login = os.getenv('USER_LOGIN')
 user_password = os.getenv('USER_PASSWORD')
-user_webname = os.getenv('USER_WEBNAME')
-user_mobilename = os.getenv('USER_MOBILENAME')
+user_web_name = os.getenv('USER_WEB_NAME')
+user_mobile_name = os.getenv('USER_MOBILE_NAME')
 
 base_url = os.getenv('BASE_URL')
 base_url_api = os.getenv('BASE_URL_API')
