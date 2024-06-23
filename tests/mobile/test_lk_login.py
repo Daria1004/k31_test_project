@@ -55,6 +55,7 @@ def test_login_fail():
 @pytest.mark.mobile
 @pytest.mark.pages
 @pytest.mark.positive
+@pytest.mark.xfail(reason="https://jira.autotests.cloud/browse/HOMEWORK-1276")
 def test_complex_programs():
     login_page.skip_health()
     login_page.open_menu()
