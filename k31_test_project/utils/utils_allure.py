@@ -88,7 +88,7 @@ def attach_response(response):
 
     if response.request.body:
         allure.attach(
-            body=json.dumps(response.request.body, indent=4, ensure_ascii=True),
+            body=json.dumps(str(response.request.body, encoding='utf-8'), indent=4, ensure_ascii=True),
             name="Request body",
             attachment_type=AttachmentType.JSON,
             extension="json",
