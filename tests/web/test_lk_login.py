@@ -39,7 +39,7 @@ def test_login_fail():
     login_page.open()
     login_page.header_should_have_text('Вход в личный кабинет пациента')
     login_page.send_login(config.user_login)
-    login_page.send_wrong_password(config.user_wrong_password)
+    login_page.send_password(config.user_wrong_password)
     login_page.should_have_error_text('Введенный код неверен')
 
 

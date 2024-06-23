@@ -18,13 +18,9 @@ class LoginPage:
             browser.element('.password-input>input').type(value)
             browser.element('button.custom-btn').should(have.text("ВОЙТИ")).click()
 
-    def send_wrong_password(self, value):
-        with allure.step("Ввод пароля"):
-            browser.element('.password-input>input').type(value)
-            browser.element('button.custom-btn').should(have.text("ВОЙТИ")).click()
-
-    def should_have_username(self, value):
-        with allure.step("Открытие страницы Личный кабинет"):
+    @staticmethod
+    def should_have_username(value):
+        with allure.step('Открытие страницы Личный кабинет'):
             browser.element('.menu__user-name').should(have.text(value))
 
     def should_have_error_text(self, value):
