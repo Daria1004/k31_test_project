@@ -17,13 +17,14 @@ def api_request(base_url):
 
     yield request
 
-@pytest.fixture(scope='session')
+
+@pytest.fixture(scope='session', autouse=True)
 def customer(api_request):
-    response = api_request.get('/v1/auth/login', auth=(f'7{config.user_login}', config.user_password))
+    response = api_request.request('get', '/v1/auth/login', auth=(f'7{config.user_login}', config.user_password))
     token = response.json()['data']['token']
     api_request.set_token(token)
 
-    response = api_request.get_with_token('/v1/user')
+    response = api_request.request('get', '/v1/user')
     customer_id = response.json()['data']['id']
 
     customer = Customer(customer_id, token)
@@ -33,16 +34,14 @@ def customer(api_request):
 
 @pytest.fixture()
 def car_id(api_request, customer):
-    api_request.set_token(customer.get_token())
-
     payload = {
         "model": "фольксваген",
         "number": "о000оо000",
         "is_primary": 0
     }
 
-    response = api_request.post_with_token('/v1/car/add', params={"user_id": customer.get_id()}, json=payload)
+    response = api_request.request('post', '/v1/car/add', params={"user_id": customer.get_id()}, json=payload)
 
     yield response.json()['data']['id']
 
-    api_request.delete_with_token('/v1/car/delete', params={"user_id": customer.get_id(), "id": car_id})
+    api_request.request('delete', '/v1/car/delete', params={"user_id": customer.get_id(), "id": car_id})

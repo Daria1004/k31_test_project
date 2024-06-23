@@ -17,9 +17,7 @@ from k31_test_project.schema.profile import schema_post_add_car, schema_delete_c
 @pytest.mark.pages
 @pytest.mark.positive
 def test_profile_add_car(api_request, customer):
-    api_request.set_token(customer.get_token())
-
-    response = api_request.get_with_token('/v1/car', params={"user_id": customer.get_id()})
+    response = api_request.request('get', '/v1/car', params={"user_id": customer.get_id()})
 
     with allure.step('Проверка статус кода'):
         assert response.status_code == 200
@@ -36,7 +34,7 @@ def test_profile_add_car(api_request, customer):
     }
 
     with allure.step('Send request with data'):
-        response = api_request.post_with_token('/v1/car/add', params={"user_id": customer.get_id()}, json=payload)
+        response = api_request.request('post', '/v1/car/add', params={"user_id": customer.get_id()}, json=payload)
 
     with allure.step('Проверка статус кода'):
         assert response.status_code == 200
@@ -51,7 +49,7 @@ def test_profile_add_car(api_request, customer):
 
     new_car_id = body['data']['id']
 
-    response = api_request.get_with_token('/v1/car', params={"user_id": customer.get_id()})
+    response = api_request.request('get', '/v1/car', params={"user_id": customer.get_id()})
 
     with allure.step('Проверка статус кода'):
         assert response.status_code == 200
@@ -80,9 +78,7 @@ def test_profile_add_car(api_request, customer):
 @pytest.mark.pages
 @pytest.mark.positive
 def test_profile_delete_car(api_request, customer, car_id):
-    api_request.set_token(customer.get_token())
-
-    response = api_request.delete_with_token('/v1/car/delete', params={"user_id": customer.get_id(), "id": car_id})
+    response = api_request.request('delete', '/v1/car/delete', params={"user_id": customer.get_id(), "id": car_id})
 
     with allure.step('Проверка статус кода'):
         assert response.status_code == 200
@@ -107,9 +103,8 @@ def test_profile_delete_car(api_request, customer, car_id):
 @pytest.mark.api
 @pytest.mark.pages
 @pytest.mark.negative
-def test_profile_cars_other_user(api_request, customer):
-    api_request.set_token(customer.get_token())
-    response = api_request.get_with_token('/v1/car', params={"user_id": 1})
+def test_profile_cars_other_user(api_request):
+    response = api_request.request('get', '/v1/car', params={"user_id": 1})
 
     with allure.step('Проверка статус кода'):
         assert response.status_code == 200

@@ -17,7 +17,7 @@ from k31_test_project.schema.auth import schema_post_auth_unsuccessful, schema_p
 @pytest.mark.login
 @pytest.mark.positive
 def test_auth_success(api_request):
-    response = api_request.get('/v1/auth/login', auth=(f'7{config.user_login}', config.user_password))
+    response = api_request.request('get', '/v1/auth/login', auth=(f'7{config.user_login}', config.user_password))
 
     with allure.step('Проверка статус кода'):
         assert response.status_code == 200
@@ -43,7 +43,7 @@ def test_auth_success(api_request):
 @pytest.mark.login
 @pytest.mark.negative
 def test_auth_fail(api_request):
-    response = api_request.get('/v1/auth/login', auth=(f'7{config.user_login}', config.user_wrong_password))
+    response = api_request.request('get', '/v1/auth/login', auth=(f'7{config.user_login}', config.user_wrong_password))
 
     with allure.step('Проверка статус кода'):
         assert response.status_code == 401
