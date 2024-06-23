@@ -26,8 +26,10 @@ if app.startswith('./'):
 
 hub_timeout = os.getenv('HUB_TIMEOUT', 15.0)
 
+selenoid_url = os.getenv('URL_SELENOID')
 selenoid_login = os.getenv('SELENOID_LOGIN')
 selenoid_password = os.getenv('SELENOID_PASSWORD')
+
 user_wrong_password = '222222'
 
 def to_driver_options():

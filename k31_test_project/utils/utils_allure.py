@@ -55,8 +55,9 @@ def attach_html(browser):
     html = browser.driver.page_source
     allure.attach(html, 'page_source', AttachmentType.HTML, '.html')
 
-def attach_video(browser):
-    video_url = f"https://selenoid.autotests.cloud/video/" + browser.driver.session_id + ".mp4"
+
+def attach_video():
+    video_url = f"https://{config.selenoid_url}/video/" + browser.driver.session_id + ".mp4"
     html = "<html><body><video width='100%' height='100%' controls autoplay><source src='" \
            + video_url \
            + "' type='video/mp4'></video></body></html>"

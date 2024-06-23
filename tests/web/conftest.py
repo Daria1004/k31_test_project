@@ -42,7 +42,7 @@ def setup_browser(request):
     password = config.selenoid_password
 
     driver = webdriver.Remote(
-        command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub",
+        command_executor=f"https://{login}:{password}@{config.selenoid_url}/wd/hub",
         options=options
     )
 
