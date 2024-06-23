@@ -1,4 +1,3 @@
-
 schema_post_auth_successful = {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",

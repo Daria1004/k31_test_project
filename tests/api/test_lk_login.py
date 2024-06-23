@@ -1,9 +1,8 @@
 import allure
 import pytest
+import config
 from allure_commons.types import Severity
 from jsonschema import validate
-
-import config
 from k31_test_project.schema.auth import schema_post_auth_unsuccessful, schema_post_auth_successful
 
 
