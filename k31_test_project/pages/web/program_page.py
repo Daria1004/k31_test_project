@@ -16,9 +16,10 @@ class ProgramPage:
         with allure.step("Проверка что вернулся не пустой результат"):
             browser.element('.program__list').should(have.size(0).not_)
 
-    def shold_have_program(self, text):
-        with allure.step("Проверка результата поиска на соответствие запросу"):
-            browser.element('h4.the-program__title').should(have.text(text))
+    @staticmethod
+    def should_have_program(text):
+        with allure.step('Проверка результата поиска на соответствие запросу'):
+            browser.element('.the-program__title').should(have.text(text))
 
     def program_list_should_be_empty(self):
         with allure.step("Проверка что вернулся пустой результат"):

@@ -52,7 +52,7 @@ def test_complex_programs():
     program_page.open()
     program_page.search('здоровье')
     program_page.program_list_should_not_be_empty()
-    program_page.shold_have_program('Управление здоровьем женщины')
+    program_page.should_have_program('Управление здоровьем женщины')
 
 
 @allure.epic('Pages')
