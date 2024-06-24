@@ -38,22 +38,22 @@
 ## Проект реализован с использованием:
 
 <p  align="center">
-<code><img width="5%" title="pycharm" src="tests/resources/images/intellij_pycharm.png"></code>
-<code><img width="5%" title="python" src="tests/resources/images/python.png"></code>
-<code><img width="5%" title="pytest" src="tests/resources/images/pytest.png"></code>
-<code><img width="4%" title="requests" src="tests/resources/images/requests.png"></code>
-<code><img width="5.5%" title="selene" src="tests/resources/images/selene.png"></code>
-<code><img width="4.5%" title="selenium" src="tests/resources/images/selenium.png"></code>
-<code><img width="5%" title="selenoid" src="tests/resources/images/selenoid.png"></code>
-<code><img width="5%" title="docker" src="tests/resources/images/docker.png"></code>
-<code><img width="5%" title="allure" src="tests/resources/images/allure_report.png"></code>
-<code><img width="5%" title="alluretestops" src="tests/resources/images/allure_testops.png"></code>
-<code><img width="5%" title="appium" src="tests/resources/images/appium.png"></code>
-<code><img width="5%" title="browserstack" src="tests/resources/images/browserstack.png"></code>
-<code><img width="5.7%" title="github" src="tests/resources/images/github.png"></code> 
-<code><img width="5%" title="jenkins" src="tests/resources/images/jenkins.png"></code>
-<code><img width="5%" title="jira" src="tests/resources/images/jira.png"></code>
-<code><img width="5%" title="telegram" src="tests/resources/images/telegram.png"></code>   
+<code><img width="5%" title="pycharm" src="resources/images/intellij_pycharm.png"></code>
+<code><img width="5%" title="python" src="resources/images/python.png"></code>
+<code><img width="5%" title="pytest" src="resources/images/pytest.png"></code>
+<code><img width="4%" title="requests" src="resources/images/requests.png"></code>
+<code><img width="5.5%" title="selene" src="resources/images/selene.png"></code>
+<code><img width="4.5%" title="selenium" src="resources/images/selenium.png"></code>
+<code><img width="5%" title="selenoid" src="resources/images/selenoid.png"></code>
+<code><img width="5%" title="docker" src="resources/images/docker.png"></code>
+<code><img width="5%" title="allure" src="resources/images/allure_report.png"></code>
+<code><img width="5%" title="alluretestops" src="resources/images/allure_testops.png"></code>
+<code><img width="5%" title="appium" src="resources/images/appium.png"></code>
+<code><img width="5%" title="browserstack" src="resources/images/browserstack.png"></code>
+<code><img width="5.7%" title="github" src="resources/images/github.png"></code> 
+<code><img width="5%" title="jenkins" src="resources/images/jenkins.png"></code>
+<code><img width="5%" title="jira" src="resources/images/jira.png"></code>
+<code><img width="5%" title="telegram" src="resources/images/telegram.png"></code>   
 
 
 ## Особенности проекта
