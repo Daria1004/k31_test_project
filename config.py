@@ -17,7 +17,7 @@ base_url = os.getenv('BASE_URL')
 base_url_api = os.getenv('BASE_URL_API')
 
 remote_url = os.getenv('URL_WD_HUB')
-appWaitActivity = os.getenv('APP_WAIT_ACTIVITY')
+device_udid = os.getenv('DEVICE_UDID')
 
 app = os.getenv('APP_STRING')
 
@@ -43,9 +43,11 @@ def to_driver_options():
 
     if context == 'local_emulator':
         options.set_capability('app', app)
+        options.set_capability('udid', device_udid)
 
     elif context == 'local_real':
         options.set_capability('app', app)
+        options.set_capability('udid', device_udid)
 
     elif context == 'bstack':
         options.set_capability('app', app)
