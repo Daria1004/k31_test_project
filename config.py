@@ -32,32 +32,33 @@ selenoid_password = os.getenv('SELENOID_PASSWORD')
 
 user_wrong_password = '222222'
 
+bstack_user_name = os.getenv('BS_USERNAME')
+bstack_access_key = os.getenv('BS_ACCESSKEY')
+bstack_platform_version = os.getenv('PLATFORM_VERSION')
+bstack_device_name = os.getenv('DEVICE_NAME')
+
+
 def to_driver_options():
     options = UiAutomator2Options()
 
-    if (context == 'local_emulator'):
+    if context == 'local_emulator':
         options.set_capability('app', app)
 
-    elif (context == 'local_real'):
+    elif context == 'local_real':
         options.set_capability('app', app)
 
-    elif (context == 'bstack'):
-        bstackUserName = os.getenv('BS_USERNAME')
-        bstackAccessKey = os.getenv('BS_ACCESSKEY')
-        platformVersion = os.getenv('PLATFORM_VERSION')
-        deviceName = os.getenv('DEVICE_NAME')
-
+    elif context == 'bstack':
         options.set_capability('app', app)
-        options.set_capability('deviceName', deviceName)
-        options.set_capability('platformVersion', platformVersion)
+        options.set_capability('deviceName', bstack_device_name)
+        options.set_capability('platform_version', bstack_platform_version)
         options.set_capability(
             'bstack:options', {
                 'projectName': 'homework_19',
                 'buildName': 'browserstack-build-1',
                 'sessionName': 'BStack K31 tests',
 
-                'userName': bstackUserName,
-                'accessKey': bstackAccessKey,
+                'userName': bstack_user_name,
+                'accessKey': bstack_access_key,
             },
         )
 
